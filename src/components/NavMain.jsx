@@ -2,8 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
 import apiHandler from "../api/apiHandler";
+import { GiHamburgerMenu } from "react-icons/gi";
 
-import "../styles/NavMain.css";
+import "../styles/nav.css";
 
 const NavMain = (props) => {
   const { context } = props;
@@ -20,35 +21,44 @@ const NavMain = (props) => {
   }
 
   return (
-    <nav className="NavMain">
+    <nav className="nav">
+
+     <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+    <GiHamburgerMenu size={44} color="  rgb(7, 131, 69)" />
+    </label>
       <NavLink exact to="/">
-        <h3 className="logo">App name</h3>
+      <label class="logo">
+      <a id="sportrip-title" href="/">PriceMatch</a>
+    </label>
+   
       </NavLink>
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
-            <li>
+            <li className="a-nav">
               <NavLink to="/profile">
                 {context.user && context.user.email}
               </NavLink>
             </li>
-            <li>
+            <li className="a-nav">
               <p onClick={handleLogout}>Logout</p>
             </li>
           </React.Fragment>
         )}
         {!context.isLoggedIn && (
           <React.Fragment>
-            <li>
+            <li className="a-nav">
               <NavLink to="/signin">Log in</NavLink>
             </li>
-            <li>
+            <li className="a-nav">
               <NavLink to="/signup">Create account</NavLink>
             </li>
           </React.Fragment>
         )}
       </ul>
     </nav>
+    
   );
 };
 
