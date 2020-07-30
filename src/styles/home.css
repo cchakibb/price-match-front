@@ -113,7 +113,7 @@ h1 {
     font-size: 35px;
     text-align: center;
     align-items: center;
-    color: rgb(0, 224,206);
+    color: black;
     padding: 14px;
     
 }
@@ -130,5 +130,5 @@ h1 {
 .iconing > p{
     text-align: center;
     padding-top: 20px;
-    font-weight: bold;
+    font-weight: lighter;
 }

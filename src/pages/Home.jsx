@@ -4,11 +4,11 @@ const Home = (props) => {
   return (
     <div>
 
-    {/* <div id="home"> */}
-    {/* <header>
+     {/* <div id="home"> 
+     <header>
       <h1>le comparateur de prix pour les professionelle</h1>
     </header>
-    </div>
+    </div> */}
 
     <section  className="article">
     <div className="zone-text">
@@ -21,23 +21,23 @@ const Home = (props) => {
         vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps,
        parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).</p>
       </div>
-      <div className="div_photo"><img src="/image/hotelUn.jpg" alt="hotel" /></div> */}
+      <div className="div_photo"><img src="/image/hotelUn.jpg" alt="hotel" /></div> 
 
 
-    {/* </section> */}
+    </section>
     <section className="zone-icon">
       <div className="icon">
-      <h3>Devellopez vos besoin</h3>
+      <h3>Developpez vos besoin</h3>
       <img src="/image/diagram2.jpg" alt="icon" />
       </div>
 
       <div className="icon">
-      <h3>Devellopez vos besoin</h3>
+      <h3>Developpez vos besoin</h3>
       <img src="/image/diagram2.jpg" alt="icon" />
       </div>
 
       <div className="icon">
-      <h3>Devellopez vos besoin</h3>
+      <h3>Developpez vos besoin</h3>
       <img src="/image/diagram2.jpg" alt="icon" />
       </div>
       
@@ -45,15 +45,15 @@ const Home = (props) => {
     </section>
     <section className="zone-iconing">
       <div className="iconing">
-      <h3>Devellopez vos besoin</h3>
+      <h3>Developpez vos besoin</h3>
       <img src="/image/human91.png" alt="icon" />
-      <p>pour vous aidez a develloper vos revenue</p>
+      <p>pour vous aidez a developer vos revenue</p>
       </div>
 
       <div className="iconing">
-      <h3>Devellopez vos besoin</h3>
+      <h3>Developpez vos besoin</h3>
       <img src="/image/human11.png" alt="icon" />
-      <p>pour vous aidez a develloper vos revenue</p>
+      <p>pour vous aidez a developer vos revenue</p>
       </div>
 {/*       
       <div className="iconing">
@@ -72,15 +72,15 @@ const Home = (props) => {
 
     <section className="zone-iconing">
       <div className="iconing">
-      <h3>Devellopez vos besoin</h3>
+      <h3>Developpez vos besoin</h3>
       <img src="/image/human7.png" alt="icon" />
-      <p>pour vous aidez a develloper vos revenue</p>
+      <p>pour vous aidez a developer vos revenue</p>
       </div>
 
       <div className="iconing">
-      <h3>Devellopez vos besoin</h3>
+      <h3>Developpez vos besoin</h3>
       <img src="/image/human5.png" alt="icon" />
-      <p>pour vous aidez a develloper vos revenue</p>
+      <p>pour vous aidez a developer vos revenue</p>
       </div>
 {/*       
       <div className="iconing">
