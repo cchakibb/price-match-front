@@ -14,10 +14,12 @@ export class test extends Component {
     apiHotel.getHotelInfo().then((hotels) => this.setState({ hotels }));
   }
 
-  render() {
+    render() {
+      
     return (
       <div>
-        <h3>Prices</h3>
+            <h3>Prices</h3>
+            <p>{this.state.hotels[0].rates}</p>
       </div>
     );
   }

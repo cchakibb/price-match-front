@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import UserContext from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
+import { Button, FormGroup, Form, Label, Input,Col } from 'reactstrap';
 
 class FormSignup extends Component {
   static contextType = UserContext;
@@ -40,13 +41,29 @@ class FormSignup extends Component {
 
   render() {
     return (
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button>Submit</button>
-      </form>
+      <div className="form">
+      <Form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+  <FormGroup row>
+    <Label for="exampleEmail" sm={2}>Email</Label>
+    <Col sm={10}>
+      <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+    </Col>
+  </FormGroup>
+  <FormGroup row>
+    <Label for="examplePassword" sm={2}>Password</Label>
+    <Col sm={10}>
+      <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+    </Col>
+  </FormGroup>
+
+  <Col sm={{ size: 10, offset: 2 }}>
+      <Button className="btn-submit" >Submit</Button>
+    </Col>
+</Form>
+
+  
+
+  </div>
     );
   }
 }
