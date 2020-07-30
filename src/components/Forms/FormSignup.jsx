@@ -44,7 +44,9 @@ class FormSignup extends Component {
 
   render() {
     return (
-      <>
+      <> <div class="register-wrapper">
+      <div class="register-block">
+        <h3 class="register-title">Create a account</h3>
         <form onChange={this.handleChange} onSubmit={this.handleSubmit} style={{ display: "flex", flexDirection: "column", width: 300, marginLeft: 600 }}>
           <label htmlFor="email">Email:</label>
           <input type="email" id="email" name="email" />
@@ -67,6 +69,8 @@ class FormSignup extends Component {
 
           <button>Submit</button>
         </form>
+        </div>
+        </div>
       </>
     );
   }

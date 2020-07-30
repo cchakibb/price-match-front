@@ -19,7 +19,9 @@
     justify-content: space-around;
     align-items: center;
     padding: 15px;
-    background-color: rgb(168, 250,175);
+    background-color: rgb(0, 224,206);
+    bottom: 0;
+    position: relative;
 }
 .ironhackers a {
   margin-left: 20px;
