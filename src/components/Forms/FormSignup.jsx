@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import UserContext from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
+import { Button, FormGroup, Form, Label, Input, Col } from "reactstrap";
 
 class FormSignup extends Component {
   static contextType = UserContext;

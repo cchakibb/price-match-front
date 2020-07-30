@@ -1,0 +1,13 @@
+.form{
+    display: flex;
+    justify-content: center;
+    padding: 55px;
+    background-color: aquamarine;
+    height: 35%;
+    width: 100%;
+}
+.btn-submit{
+    padding: 5px;
+    margin: 15px;
+    
+}
