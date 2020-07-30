@@ -29,7 +29,7 @@ const NavMain = (props) => {
     </label>
       <NavLink exact to="/">
       <label class="logo">
-      <a id="sportrip-title" href="/">PriceMatch</a>
+      <a id="sportrip-title" href="/">Price<span>Match</span></a>
     </label>
    
       </NavLink>

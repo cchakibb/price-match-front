@@ -5,10 +5,10 @@
 	justify-content: space-between;
 	align-items: center;
 	background-color: var(--color-main);
-	height: var(--nav-height);
+	height: 150px;
 	width: 100%;
 	color: var(--color-secondary);
-	box-shadow: rgb(7, 131, 69) 1px 1px 5px;
+	box-shadow: grey 1px 1px 5px;
 }
 
 label.logo {
@@ -17,9 +17,13 @@ label.logo {
 	padding: 0 50px;
 	font-weight: bold;
 }
+label.logo span{
+	font-weight: bold;
+}
 
 label a {
-	color:  white;
+	color: grey;
+	
 }
 
 .nav ul {
