@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullcalendar/daygrid": "^5.1.0",
+    "@fullcalendar/interaction": "^5.1.0",
+    "@fullcalendar/react": "^5.1.0",
     "axios": "^0.19.2",
     "moment": "^2.27.0",
     "react": "^16.13.1",

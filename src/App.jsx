@@ -8,7 +8,8 @@ import FooterMain from './components/FooterMain';
 import Header from './components/Header';
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
-import Test from './pages/Test'
+import Dashboard from "./pages/Dashboard";
+import Test from "./pages/Test";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/test" component={Test} />
 
         <ProtectedRoute exact path="/profile" component={Profile} />
