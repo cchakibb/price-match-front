@@ -11,6 +11,8 @@ class Calendar extends Component {
     //isLoading: true,
   };
 
+
+
   componentDidMount() {
 
     apiHotel.getHotelInfo().then((data) => {
@@ -22,7 +24,8 @@ class Calendar extends Component {
     //console.log(hotels);
   }
     
-  getHotelName = (url) =>{
+  getHotelName = (url) => {
+    console.log("url",url)
     let res = url.substring(64);
     let name = res.substring(0, res.length - 5);
     if (name.charAt(0) === "-") {
@@ -33,29 +36,33 @@ class Calendar extends Component {
     return (name) ;
   }
 
-
-
-
-
-
-
   render() {
 
 // const hotels = [{ name;"titi", age: 28}, {name: "toto", age: 14}];
-    console.log("dans le render",this.state.hotels)
+    console.log("dans le render", this.state.hotels)
+       // hotels.map(hotel => hotel.name) => ["titi", "toto"]
+    const hotel = this.state.hotels.map((hotel) => {
      
-   // hotels.map(hotel => hotel.name) => ["titi", "toto"]
-const hotel=()=>{
-    this.state.hotels.map((hotel) => {
-    return hotel.chk_in
+      
+       return hotel.rates.map((rate) => {
+                      
+         console.log("rate",rate.rate)
+         console.log( "name",this.getHotelName(hotel.hotel_url[0]))
+             
+        return {
+          title: this.getHotelName(hotel.hotel_url[0]),
+          test:"test",
+         
+          date: hotel.chk_in
+        }
+         
+        
+     }
+     )
+
     })
-}
     
- 
-  
-    
-    
-    // const ["titi", "toto"] =<
+    console.log(hotel.flat())
 
 
     return (
@@ -66,10 +73,9 @@ const hotel=()=>{
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView="dayGridWeek"
           firstDay={1}
-          events={[
-            { title: ` ${"€"}`, date: `${hotel.chk_in}` },
-      
-          ]}
+          events={
+            hotel.flat()
+          }
         />
       </div>
     );
