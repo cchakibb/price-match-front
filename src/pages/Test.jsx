@@ -47,44 +47,20 @@ export class test extends Component {
     //     name: "Hotels.com",
     //     rate: 96,
     //     tax: 18
-    //     },
-    //     {
-    //     code: "Agoda",
-    //     name: "Agoda.com",
-    //     rate: 83,
-    //     tax: 16
-    //     },
-    //     {
-    //     code: "Expedia",
-    //     name: "Expedia",
-    //     rate: 96,
-    //     tax: 18
-    //     },
-    //     {
-    //     code: "CtripTA",
-    //     name: "Trip.com",
-    //     rate: 81,
-    //     tax: 15
-    //     }
-    // ],
+   
 
     if (this.state.hotels.length > 0) {
       return (
         <div>
           <h3>Prices</h3>
               {this.state.hotels.map((hotel, i) => {
-                  console.log(hotel.hotel_url[0])
             
               return <div key={i}>{this.getHotelName(hotel.hotel_url[0])}
                   
                   {hotel.rates.map((rate, i) => {
-                      
-                     // if (rate.name === "Expedia")
-                     // {
-                          
-                          return <p key={i}>{rate.name} <br/>{rate.rate}</p>
-                          //}
-                     
+
+                    return <p key={i}>{hotel.chk_in}{rate.name} <br/>{rate.rate}</p>
+
                   }
                   )} 
 
