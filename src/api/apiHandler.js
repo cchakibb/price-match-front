@@ -50,4 +50,17 @@ export default {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+  getUser(){
+    return service
+    .get("/user/me") 
+    .then((res) => res.data)
+      .catch(errorHandler);
+  },
+UserUpdate(){
+  return service
+  .patch("/user/me")
+  .then((res) => res.data)
+    .catch(errorHandler);
+}
 };
+

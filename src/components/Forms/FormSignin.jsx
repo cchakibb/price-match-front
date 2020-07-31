@@ -39,9 +39,9 @@ class FormSignin extends Component {
 
   render() {
     return (
-      <div class="register-wrapper">
-      <div class="register-block">
-        <h3 class="register-title">LogIn</h3>
+      <div className="register-wrapper">
+      <div className="register-block">
+        <h3 className="register-title">LogIn</h3>
       <form onChange={this.handleChange} onSubmit={this.handleSubmit} style={{ display: "flex", flexDirection: "column", width: 300, marginLeft: 600 }}>
         <label htmlFor="email">Email:</label>
         <input type="email" id="email" name="email" />
