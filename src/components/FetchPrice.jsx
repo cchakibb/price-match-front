@@ -20,6 +20,8 @@ export class test extends Component {
     //this.setState({ idLoading: false });
     //console.log(hotels);
   }
+
+  
     
   getHotelName = (url) =>{
     let res = url.substring(64);
@@ -36,37 +38,6 @@ export class test extends Component {
       console.log(this.state.hotels);
       
     
-
-    // {
-    //     chk_in: "2020-09-20",
-    //     chk_out: "2020-09-23",
-    //     currency: "USD",
-    //     rates: [
-    //     {
-    //     code: "HotelsCom2",
-    //     name: "Hotels.com",
-    //     rate: 96,
-    //     tax: 18
-    //     },
-    //     {
-    //     code: "Agoda",
-    //     name: "Agoda.com",
-    //     rate: 83,
-    //     tax: 16
-    //     },
-    //     {
-    //     code: "Expedia",
-    //     name: "Expedia",
-    //     rate: 96,
-    //     tax: 18
-    //     },
-    //     {
-    //     code: "CtripTA",
-    //     name: "Trip.com",
-    //     rate: 81,
-    //     tax: 15
-    //     }
-    // ],
 
     if (this.state.hotels.length > 0) {
       return (
