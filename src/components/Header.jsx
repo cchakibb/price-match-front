@@ -3,15 +3,15 @@ class Header extends Component {
     render(){
         return<div>
 
-<header class="header1">
-	<div class="brand-box">
+<header className="header1">
+	<div className="brand-box">
 		
 	</div>
 	
-	<div class="text-box">
-		<h1 class="heading-primary">
+	<div className="text-box">
+		<h1 className="heading-primary">
 		</h1>
-		<a href="/contact" class="btn btn-white btn-animated">Contact</a>
+		<a href="/contact" className="btn btn-white btn-animated">Contact</a>
 	</div>
 </header>
         </div>

@@ -24,12 +24,12 @@ const NavMain = (props) => {
     <nav className="nav">
 
      <input type="checkbox" id="check" />
-    <label for="check" className="checkbtn">
+    <label htmlFor="check" className="checkbtn">
     <GiHamburgerMenu size={44} color="  rgb(7, 131, 69)" />
     </label>
       <NavLink exact to="/">
-      <label class="logo">
-      <a id="sportrip-title" href="/">Price<span>Match</span></a>
+      <label className="logo">
+      <a id="price-title" href="/">Price<span>Match</span></a>
     </label>
    
       </NavLink>

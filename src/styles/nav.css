@@ -2,13 +2,14 @@
 
 .nav {
 	display: flex;
+	position: fixed ;
 	justify-content: space-between;
 	align-items: center;
-	background-color: var(--color-main);
+	background-color: white;
 	height: 150px;
 	width: 100%;
-	color: var(--color-secondary);
 	box-shadow: grey 2px 2px 5px;
+	z-index: 1;
 	
 }
 
@@ -52,7 +53,7 @@ label a {
 	transition: 0.5s;
 }
 
-#sportrip-title {
+#price-title {
 	font-size: 30px;
 	text-shadow: rgb(128, 128, 128) 2px 0 10px;
 }
