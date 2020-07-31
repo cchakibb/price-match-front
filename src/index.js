@@ -9,6 +9,7 @@ import "./styles/global.css";
 import "./styles/footer.css";
 import "./styles/form.css";
 import "./styles/header.css";
+import "./styles/profile.css";
 
 ReactDOM.render(
   <BrowserRouter>

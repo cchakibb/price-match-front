@@ -10,6 +10,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
 import Test from "./pages/Test";
+import ProfileUpdate from "./pages/ProfileUpdate";
+import Data from "./pages/Data";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/data" component={Data} />
+        <Route exact path="/profile/settings" component={ProfileUpdate} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/test" component={Test} />
 

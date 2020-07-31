@@ -1,0 +1,13 @@
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 300px;
+}
+.profile p{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px;
+    margin-left: 50px;
+}

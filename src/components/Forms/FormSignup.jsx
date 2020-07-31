@@ -28,6 +28,7 @@ class FormSignup extends Component {
   };
 
   handleSubmit = (event) => {
+    console.log("clicked")
     event.preventDefault();
     if (this.state.password1 === this.state.password2) {
       apiHandler
@@ -40,9 +41,10 @@ class FormSignup extends Component {
           console.log(error);
         });
     }
-  };
+  }
 
   render() {
+
     return (
       <> <div className="register-wrapper">
       <div className="register-block">

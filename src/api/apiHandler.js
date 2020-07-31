@@ -56,9 +56,9 @@ export default {
     .then((res) => res.data)
       .catch(errorHandler);
   },
-UserUpdate(){
+UserUpdate(user){
   return service
-  .patch("/user/me")
+  .patch("/user/me",user)
   .then((res) => res.data)
     .catch(errorHandler);
 }
