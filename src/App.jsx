@@ -12,6 +12,8 @@ import Dashboard from "./pages/Dashboard";
 import Test from "./pages/Test";
 import ProfileUpdate from "./pages/ProfileUpdate";
 import Data from "./pages/Data";
+import Database from "./pages/Database";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route exact path="/profile/settings" component={ProfileUpdate} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/test" component={Test} />
+        <Route exact path="/db" component={Database} />
 
         <ProtectedRoute exact path="/profile" component={Profile} />
       </Switch>
