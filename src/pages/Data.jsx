@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import apiHotel from "../api/apiHotel";
 import axios from "axios";
-
+import UserContext from "../components/Auth/UserContext";
 class Data extends Component {
+  static contextType = UserContext;
   state = {
     hotels: [],
   };
@@ -17,6 +18,11 @@ class Data extends Component {
         .catch((error) => console.log(error));
     });
   }
+
+  componentDidUpdate() {
+    console.log(this.context, "this is context");
+  }
+
   render() {
     console.log(this.state.hotels);
     return (

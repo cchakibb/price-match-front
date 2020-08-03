@@ -1,33 +1,43 @@
-import React, { Component, useState }from "react";
+import React, { Component } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import apiHotel from "../api/apiHotel"; // needed for dayClick
 import bootstrapPlugin from "@fullcalendar/bootstrap";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
-
+// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { withUser } from "../components/Auth/withUser";
 
 class Calendar extends Component {
   state = {
     hotels: [],
     today: new Date(),
-    modal:false,
-  
+    modal: false,
+
     //isLoading: true,
   };
 
   componentDidMount() {
-    apiHotel.getHotelInfo().then((data) => {
-      const hotels = data.filter((d) => d !== null);
-      this.setState({ hotels: hotels });
-    });
+    if (this.props.context.user) {
+      apiHotel.getHotelInfo(this.props.context.user.competitors).then((data) => {
+        const hotels = data.filter((d) => d !== null);
+        this.setState({ hotels: hotels });
+      });
+    }
+
     //this.setState({ idLoading: false });
     //console.log(hotels);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.context.user !== prevProps.context.user) {
+      apiHotel.getHotelInfo(this.props.context.user.competitors).then((data) => {
+        const hotels = data.filter((d) => d !== null);
+        this.setState({ hotels: hotels });
+      });
+    }
+  }
+
   getHotelName = (url) => {
-    console.log("url", url);
     let res = url.substring(64);
     let name = res.substring(0, res.length - 5);
     if (name.charAt(0) === "-") {
@@ -38,13 +48,10 @@ class Calendar extends Component {
     return name;
   };
 
-
-  
-
   // handleEventClick = (eventInfo) => {
   //   this.setState({ modal: true })
-  
-  //    return  
+
+  //    return
   // };
 
   EventDetail = (eventInfo) => {
@@ -61,14 +68,12 @@ class Calendar extends Component {
         >
           {eventInfo.event.extendedProps.description}
         </p>
-        
       </>
     );
   };
 
   render() {
     // const hotels = [{ name;"titi", age: 28}, {name: "toto", age: 14}];
-    console.log("dans le render", this.state.hotels.flat());
 
     // hotels.map(hotel => hotel.name) => ["titi", "toto"]
     const hotel = this.state.hotels.flat().map((hotel) => {
@@ -78,32 +83,25 @@ class Calendar extends Component {
         date: hotel.chk_in,
       };
     });
-    console.log("events", hotel);
 
     return (
       <div>
-        
         {/* {(this.state.modal) ? <Modal /> : ""} */}
 
-         
-         
         <FullCalendar
-          plugins={[dayGridPlugin, interactionPlugin,bootstrapPlugin]}
+          plugins={[dayGridPlugin, interactionPlugin, bootstrapPlugin]}
           initialView="dayGridWeek"
           firstDay={1}
           timeZone="UTC"
           themeSystem="bootstrap"
-          selectable= "true"
+          selectable="true"
           eventClick={this.handleEventClick}
           eventContent={this.EventDetail}
           events={hotel}
         />
-
-        
-       
       </div>
     );
   }
 }
 
-export default Calendar;
+export default withUser(Calendar);
