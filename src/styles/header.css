@@ -7,18 +7,17 @@ body {
 }
 
 .header1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 95vh;
-    background-image: 
-    linear-gradient(to right bottom, 
-   rgba(76, 216, 255, 0.719),
-   rgba(30, 108, 217, 0.8)),
-   url('/image/hotelUn.jpg');
+    background-color: rgb(235, 255, 255);
     
   background-size: cover;
     background-position: top;
     position: relative;
 
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); */
 }
 
 .brand-box {
@@ -30,19 +29,27 @@ body {
 .brand { font-size: 20px; }
 
 .text-box {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
+.img-header img{
+    height: auto;
+    width: 500px;
+    padding: 35px;
+  
+}
 
 .heading-primary {
     color: black;
     text-transform: uppercase;
-
     backface-visibility: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .heading-primary-main {
@@ -58,7 +65,29 @@ body {
     font-weight: 700;
     letter-spacing: 7.4px;
 }
+.header-title{
+    padding: 20px;
+    width: 500px;
+    height: 80px;
+  
+}
+.header-title h1{
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 5px;
 
+
+}
+.header-title p{
+    font-weight: lighter;
+}
+.header-title a{
+    background-color: red;
+    border-style: none;
+    padding: 5px;
+    font-weight: bold;
+}
 .btn:link,
 .btn:visited {
     text-transform: uppercase;

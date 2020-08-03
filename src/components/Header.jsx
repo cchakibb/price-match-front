@@ -8,11 +8,16 @@ class Header extends Component {
 		
 	</div>
 	
-	<div className="text-box">
-		<h1 className="heading-primary">
+	<div className="header-title" >
+    <p>Always be at the best price</p>
+		<h1 >PriceMatch 
+
 		</h1>
-		<a href="/contact" className="btn btn-white btn-animated">Contact</a>
+		<a href="/contact" className="btn">Contact</a>
 	</div>
+    <div className="img-header">
+        <img src="/image/chart-main.png" alt="diagram"/>
+    </div>
 </header>
         </div>
     }

@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import FooterMain from './components/FooterMain';
-import Header from './components/Header';
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
@@ -19,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <NavMain />
-      <Header />
+        <div className="content">
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={Signin} />
@@ -32,6 +31,7 @@ function App() {
 
         <ProtectedRoute exact path="/profile" component={Profile} />
       </Switch>
+      </div>
       <FooterMain />
     </div>
   );

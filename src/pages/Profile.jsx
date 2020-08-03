@@ -20,20 +20,31 @@ class Profile extends Component {
 
     if (this.context.user.firtName === null) return <div>Loading</div>
     return (
-      <div className="profile">
-      <div>
+        <div>
+      
 
-        <h1>Hello {this.context.user.firstName}</h1>
-        <p>{this.context.user.lastName}</p>
-        <p>{this.context.user.hotelName}</p>
+   
+          <div className="cardo">
+  <h1>Hello {this.context.user.firstName}</h1>
+  <h3>{this.context.user.lastName}</h3>
+  <p class="title">{this.context.user.hotelName}</p>
         <p>{this.context.user.email}</p>
         <p>{this.context.user.phoneNumber}</p>
+        <h3>Competitors :</h3>
         <p>{this.context.user.competitors}</p>
-      </div>
-        <Link className="link" to="/profile/settings">
+  {/* <a href="#"><i class="fa fa-dribbble"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <a href="#"><i class="fa fa-linkedin"></i></a>
+  <a href="#"><i class="fa fa-facebook"></i></a> */}
+  <p> <Link className="link" to="/profile/settings">
             Edit profile
-          </Link>
-      </div>
+          </Link></p>
+  </div>
+</div>
+      
+      
+      
+      
     );
     };
   }

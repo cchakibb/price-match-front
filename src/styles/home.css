@@ -1,41 +1,17 @@
-#home header {
-	background-image: url("/image/hotelUn.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-    background-position: 100% 40%;
-	position: relative;
-	height: 550px;
-    top: 0;
-    border-radius: 25px;
-    padding: 15px;
-    
-}
 
-h1 {
-	font-size: 2.8rem;
-	font-weight: bold;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	width: 80%;
-	text-align: center;
-	background: rgb(0, 224,206);
-    color: var(--color-secondary);
-    border-radius: 25px;
-}
 .article{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.555);
+    height: auto;
 }
 .article h2{
     text-transform: uppercase;
     font-weight: bold;
     font-size: 35px;
-    padding: 10px;
+    padding: 5px;
 }
 .article p{
     font-weight: lighter;
@@ -44,51 +20,72 @@ h1 {
 .zone-text{
     display: flex;
     flex-wrap: wrap;
-    width: 450px;
+    padding: 10px;
+    width: 600px;
     height: auto;
     font-weight: bold;
 }
+h2{
+    text-align: center;
+    padding: 20px;
+}
 .div-photo > img{
     border-radius: 15px;
+    width: 250px;
+    height: auto;
+    
 
 }
 .zone-icon{
     display: flex;
     justify-content: space-evenly;
-   left: 0;
-    width: 90%;
-    border-radius: 25px;
-    border-style: none;
-    background-color: rgba(255, 255, 255, 0.685);
-    height: 200px;
-    
-}
-.icon{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 250px;
-    margin-left: 25px;
-    ;
-}
+    padding: 25px;
+    background-color: rgba(211, 211, 211, 0.726);
 
-
-.icon h3{
+}
+.card {
     display: flex;
-    justify-content: center;
-    color: black;
-    padding: 19px;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 300px;
+    border-radius: 5px;
+    background-color: rgba(252, 192, 82, 0.932);
     
-}
+  }
+  .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      width: 250px;
+      height: auto;
+  }
+  .card h4{
+      font-size: 25px;
+      
+  }
+  .card p{
+      font-weight: lighter;
+  }
+.card:hover {
+    box-shadow: 0 8px 16px 0 grey;
+  }
+  
+.card > img {
+    display: block;
+    justify-content: flex-start;
+    border-radius: 5px 5px 0 0;
+    width: 200px;
+    padding: 5px;
+    background-color: rgba(252, 192, 82, 0.932);
+    
+  }
 
-.icon > img{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    width: 120px;
-    height: 100px;
-    
-}
+  
+.container {
+    padding: 2px 16px;
+  }
 .zone-iconing{
     display: flex;
     flex-wrap: wrap;
@@ -96,6 +93,19 @@ h1 {
     align-items: center;
     background-color: whitesmoke;
     height: 500px;
+}
+.new1{
+
+    border: 2px solid rgba(252, 192, 82, 0.932);
+    width: 500px;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.zone-iconing h2{
+
+    text-align: center;
 }
 .iconing{
     display: flex;
@@ -115,7 +125,7 @@ h1 {
     text-align: center;
     align-items: center;
     color: black;
-    padding: 14px;
+    padding: 2px;
     
 }
 
@@ -130,6 +140,13 @@ h1 {
 }
 .iconing > p{
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
     font-weight: lighter;
+    font-size: 20px;
+}
+.hotel {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 25px;
+        background-color: rgba(252, 192, 82, 0.932);
 }
