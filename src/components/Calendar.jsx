@@ -1,19 +1,24 @@
-import React, { Component, useState }from "react";
+import React, { Component, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin from "@fullcalendar/interaction";
+import interactionPlugin, {
+  ThirdPartyDraggable,
+} from "@fullcalendar/interaction";
 import apiHotel from "../api/apiHotel"; // needed for dayClick
 import bootstrapPlugin from "@fullcalendar/bootstrap";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
-
+import Modal from "./Modal";
 
 class Calendar extends Component {
   state = {
     hotels: [],
     today: new Date(),
-    modal:false,
-  
+    modal: false,
+    event: {
+      title: "",
+      description: "",
+      date: new Date(),
+    },
+
     //isLoading: true,
   };
 
@@ -38,14 +43,12 @@ class Calendar extends Component {
     return name;
   };
 
+  handleEventClick = (eventInfo, el) => {
+    this.setState({ modal: !this.state.modal });
+    this.setState({ event: eventInfo.event });
 
-  
-
-  // handleEventClick = (eventInfo) => {
-  //   this.setState({ modal: true })
-  
-  //    return  
-  // };
+    console.log(eventInfo);
+  };
 
   EventDetail = (eventInfo) => {
     return (
@@ -61,9 +64,12 @@ class Calendar extends Component {
         >
           {eventInfo.event.extendedProps.description}
         </p>
-        
       </>
     );
+  };
+
+  closeModal = () => {
+    this.setState({ modal: false });
   };
 
   render() {
@@ -82,25 +88,23 @@ class Calendar extends Component {
 
     return (
       <div>
-        
-        {/* {(this.state.modal) ? <Modal /> : ""} */}
+        <Modal
+          isOpen={this.state.modal}
+          handleClose={this.closeModal}
+          event={this.state.event}
+        />
 
-         
-         
         <FullCalendar
-          plugins={[dayGridPlugin, interactionPlugin,bootstrapPlugin]}
+          plugins={[dayGridPlugin, interactionPlugin, bootstrapPlugin]}
           initialView="dayGridWeek"
           firstDay={1}
           timeZone="UTC"
           themeSystem="bootstrap"
-          selectable= "true"
+          selectable="true"
           eventClick={this.handleEventClick}
           eventContent={this.EventDetail}
           events={hotel}
         />
-
-        
-       
       </div>
     );
   }
