@@ -15,11 +15,23 @@ export class Database extends Component {
       })
       .catch((err) => console.log(err));
   }
+
+  getHotelName = (url) => {
+    let res = url.substring(64);
+    let name = res.substring(0, res.length - 5);
+    if (name.charAt(0) === "-") {
+      name = name.replace("-", "");
+    }
+    const regex = /_/gi;
+    name = name.replace(regex, " ");
+    return name;
+  };
+
   render() {
     return (
       <div>
         {this.state.hotels.map((oneHotel) => (
-          <li key={oneHotel._id}> {oneHotel.hotel_url[0]}</li>
+          <li key={oneHotel._id}> {this.getHotelName(oneHotel.hotel_url[0])}</li>
         ))}
       </div>
     );

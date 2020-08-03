@@ -1,17 +1,23 @@
 import React, { Component } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin from "@fullcalendar/interaction";
+import interactionPlugin, { ThirdPartyDraggable } from "@fullcalendar/interaction";
 import apiHotel from "../api/apiHotel"; // needed for dayClick
 import bootstrapPlugin from "@fullcalendar/bootstrap";
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { withUser } from "../components/Auth/withUser";
+import Modal from "./Modal";
 
 class Calendar extends Component {
   state = {
     hotels: [],
     today: new Date(),
     modal: false,
+    event: {
+      title: "",
+      description: "",
+      date: new Date(),
+    },
 
     //isLoading: true,
   };
@@ -48,11 +54,12 @@ class Calendar extends Component {
     return name;
   };
 
-  // handleEventClick = (eventInfo) => {
-  //   this.setState({ modal: true })
+  handleEventClick = (eventInfo, el) => {
+    this.setState({ modal: !this.state.modal });
+    this.setState({ event: eventInfo.event });
 
-  //    return
-  // };
+    console.log(eventInfo);
+  };
 
   EventDetail = (eventInfo) => {
     return (
@@ -72,6 +79,10 @@ class Calendar extends Component {
     );
   };
 
+  closeModal = () => {
+    this.setState({ modal: false });
+  };
+
   render() {
     // const hotels = [{ name;"titi", age: 28}, {name: "toto", age: 14}];
 
@@ -86,7 +97,7 @@ class Calendar extends Component {
 
     return (
       <div>
-        {/* {(this.state.modal) ? <Modal /> : ""} */}
+        <Modal isOpen={this.state.modal} handleClose={this.closeModal} event={this.state.event} />
 
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin, bootstrapPlugin]}
