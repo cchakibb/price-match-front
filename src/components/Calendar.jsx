@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin, { ThirdPartyDraggable } from "@fullcalendar/interaction";
+import interactionPlugin, {
+  ThirdPartyDraggable,
+} from "@fullcalendar/interaction";
 import apiHotel from "../api/apiHotel"; // needed for dayClick
 import bootstrapPlugin from "@fullcalendar/bootstrap";
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
@@ -18,16 +20,19 @@ class Calendar extends Component {
       description: "",
       date: new Date(),
     },
+    isLoading:true,
 
     //isLoading: true,
   };
 
   componentDidMount() {
     if (this.props.context.user) {
-      apiHotel.getHotelInfo(this.props.context.user.competitors).then((data) => {
-        const hotels = data.filter((d) => d !== null);
-        this.setState({ hotels: hotels });
-      });
+      apiHotel
+        .getHotelInfo(this.props.context.user.competitors)
+        .then((data) => {
+          const hotels = data.filter((d) => d !== null);
+          this.setState({ hotels: hotels });
+        });
     }
 
     //this.setState({ idLoading: false });
@@ -36,10 +41,12 @@ class Calendar extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.context.user !== prevProps.context.user) {
-      apiHotel.getHotelInfo(this.props.context.user.competitors).then((data) => {
-        const hotels = data.filter((d) => d !== null);
-        this.setState({ hotels: hotels });
-      });
+      apiHotel
+        .getHotelInfo(this.props.context.user.competitors)
+        .then((data) => {
+          const hotels = data.filter((d) => d !== null);
+          this.setState({ hotels: hotels });
+        });
     }
   }
 
@@ -56,10 +63,17 @@ class Calendar extends Component {
 
   handleEventClick = (eventInfo, el) => {
     this.setState({ modal: !this.state.modal });
-    this.setState({ event: eventInfo.event });
+    this.setState({ date: eventInfo.event.date});
+    this.setState({ title: eventInfo.event.title });
+    this.setState({ description: eventInfo.event.extendedProps.description });
 
-    console.log(eventInfo);
+    console.log("this state event date", this.state.date);
+    console.log("this state event", eventInfo);
   };
+
+  isLoading = ()=>{ 
+   
+}
 
   EventDetail = (eventInfo) => {
     return (
@@ -97,19 +111,29 @@ class Calendar extends Component {
 
     return (
       <div>
-        <Modal isOpen={this.state.modal} handleClose={this.closeModal} event={this.state.event} />
-
-        <FullCalendar
-          plugins={[dayGridPlugin, interactionPlugin, bootstrapPlugin]}
-          initialView="dayGridWeek"
-          firstDay={1}
-          timeZone="UTC"
-          themeSystem="bootstrap"
-          selectable="true"
-          eventClick={this.handleEventClick}
-          eventContent={this.EventDetail}
-          events={hotel}
-        />
+        <div style={{ height: "auto", width: "", margin: "100px 100px" }}>
+          <FullCalendar
+            plugins={[dayGridPlugin, interactionPlugin, bootstrapPlugin]}
+            initialView="dayGridWeek"
+            firstDay={1}
+            height="auto"
+            timeZone="UTC"
+            selectable="true"
+            loading={this.isLoading}
+            eventClick={this.handleEventClick}
+            eventContent={this.EventDetail}
+            events={hotel}
+          />
+        </div>
+        <div>
+          <Modal
+            isOpen={this.state.modal}
+            handleClose={this.closeModal}
+            title={this.state.title}
+            description={this.state.description}
+            date={this.state.date}
+          />
+        </div>
       </div>
     );
   }
