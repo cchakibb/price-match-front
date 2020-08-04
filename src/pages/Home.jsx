@@ -27,7 +27,10 @@ const Home = (props) => {
       <section className="zone-icon">
 
       <div className="card">
+      <div>
+
     <img src='/image/chart-test.png' alt="Avatar" ></img>
+      </div>
     <div classname="container">
       <h4><b>add your competitor</b></h4>
       <p>Engineer</p>
@@ -35,7 +38,10 @@ const Home = (props) => {
     </div>
     
     <div className="card">
+    <div>
+
     <img src='/image/chart-test2.png' alt="Avatar"  />
+    </div>
     <div classname="container">
       <h4><b>Welcome more people</b></h4>
       <p>With us your will be able to know and match the price with your competitor</p>
@@ -44,7 +50,10 @@ const Home = (props) => {
     </div>
 
     <div className="card">
+    <div>
+
     <img src="/image/chart-test3.png" alt="Avatar"  />
+    </div>
     <div classname="container">
       <h4><b>Know more about your competitor</b></h4>
       <p>You can now know more about your competitor</p>
@@ -52,7 +61,10 @@ const Home = (props) => {
     </div>
 
     <div className="card">
+    <div>
+
     <img src="/image/chart-test4.png" alt="Avatar"  />
+    </div>
     <div classname="container">
       <h4><b>Match with the market</b></h4>
       <p>With us your will be able to know and match the price with your competitor</p>
