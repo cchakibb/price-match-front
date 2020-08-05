@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import UserContext from "../Auth/UserContext";
 import { withRouter } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
+import { GiAutoRepair } from "react-icons/gi";
 
 // import "../styles/signin.css";
 class FormSignin extends Component {
@@ -42,7 +43,7 @@ class FormSignin extends Component {
       <div className="register-wrapper">
       <div className="register-block">
         <h3 className="register-title">LogIn</h3>
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit} style={{ display: "flex", flexDirection: "column", width: 300, marginLeft: 680 }}>
+      <form onChange={this.handleChange} onSubmit={this.handleSubmit} style={{ display: "flex", flexDirection: "column", width: 300, marginLeft: "auto" ,marginRight:"auto"}}>
         <label htmlFor="email">Email:</label>
         <input type="email" id="email" name="email" />
         <label htmlFor="password">Password:</label>
