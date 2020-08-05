@@ -25,7 +25,6 @@ class FormUpdate extends Component {
     const key = event.target.name;
 
     this.setState({ [key]: value });
-    
   };
 
   handleSubmit = (event) => {
