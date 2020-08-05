@@ -2,7 +2,9 @@ import moment from "moment";
 import axios from "axios";
 import apiHandler from "./apiHandler";
 
+
 const getHotelInfo = (competitors) => {
+ 
   const array = [
     // "g187129-d615325",
     // "g187129-d229787",
@@ -31,6 +33,7 @@ const getHotelInfo = (competitors) => {
         })
       );
     }
+   
   }
 
   return Promise.all(promises).then(() => hotels);

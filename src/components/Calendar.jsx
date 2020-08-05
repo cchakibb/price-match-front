@@ -70,7 +70,13 @@ class Calendar extends Component {
   EventDetail = (eventInfo) => {
     return (
       <>
-        <p>{eventInfo.event.title}</p>
+        <p style={{
+          textAlign: "justify",
+          fontSize:"10px",
+          backgroundColor: "rgba(252, 192, 82, 0.932)",
+           
+            color: "black",
+          }}>{eventInfo.event.title}</p>
 
         <p
           style={{
@@ -111,6 +117,7 @@ class Calendar extends Component {
             height="auto"
             timeZone="UTC"
             selectable="true"
+            eventDisplay="auto"
             loading={this.isLoading}
             eventClick={this.handleEventClick}
             eventContent={this.EventDetail}

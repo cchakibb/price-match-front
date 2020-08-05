@@ -5,6 +5,7 @@ import { Chart } from "react-google-charts";
 export class Database extends Component {
   state = {
     hotels: [],
+    dates : []
   };
 
   componentDidMount() {
@@ -28,65 +29,127 @@ export class Database extends Component {
     return name;
   };
 
-  render() {
-    let hotel = this.state.hotels.map((hotel) =>
-      hotel.rates.map((rate) => {
-        return {
-          name: `${this.getHotelName(hotel.hotel_url[0])}`,
-          name_site: rate.name,
-          date: hotel.chk_in,
-          rate: rate.rate,
-        };
-      })
-    );
 
-    if (hotel.length) {
-      console.log("hotel", hotel[0][0].date, "au premier render");
+
+
+  render() {
+
+    // let hotel = this.state.hotels.map((hotel) =>
+    //   hotel.rates.map((rate) => {
+    //     return {
+    //       name: `${this.getHotelName(hotel.hotel_url[0])}`,
+    //       name_site: rate.name,
+    //       date: hotel.chk_in,
+    //       rate: rate.rate,
+    //     };
+    //   })
+    // );
+
+    // if (hotel.length) {
+    //   console.log("hotel", hotel, "au premier render");
+    // }
+
+    const result = this.state.hotels.reduce((acc, curr) => {
+      if (acc[curr.hotel_url[0]]) {
+        acc[curr.hotel_url[0]].dates[curr.chk_in] = curr.rates[0].rate;
+      } else {
+        acc[curr.hotel_url[0]] = {
+          dates: { [curr.chk_in]: curr.rates[0].rate },
+        };
+      }
+      return acc;
+    }, {});
+    console.log(result)
+
+    let dates = [];
+const hotelNames = Object.keys(result);
+hotelNames.forEach((hotelName) => {
+  const datesInHotel = Object.keys(result[hotelName].dates);
+  dates = [...dates, ...datesInHotel];
+});
+dates.sort();
+dates = [...new Set(dates)];
+const myData = dates.reduce((acc, curr) => {
+  for (let hotelName of hotelNames) {
+    if (acc[curr]) {
+      acc[curr].push(result[hotelName].dates[curr]);
+    } else {
+      acc[curr] = [result[hotelName].dates[curr]];
     }
+  }
+  return acc;
+}, {});
+    
+const formattedData = Object.keys(myData).reduce((acc, curr) => {
+  acc.push([curr, ...myData[curr]]);
+  return acc;
+}, []);
+    console.log("formattedData",formattedData)
+console.log(hotelNames);
+const formattedHotelsNames = hotelNames.map(hotel => this.getHotelName(hotel));
+    const readyDataForChart = ["Dates", ...formattedHotelsNames];
+    console.log("readyData",readyDataForChart)
+    const data = formattedData.unshift(readyDataForChart);
+    console.log("data",data)
+
+
 
     return (
       <div>
-        {this.state.hotels.map((oneHotel) => (
-          <li key={oneHotel._id}> {this.getHotelName(oneHotel.hotel_url[0])}</li>
-        ))}
+        {/* {this.state.hotels.map((oneHotel) => (
+          <li key={oneHotel._id}>
+            {" "}
+            {this.getHotelName(oneHotel.hotel_url[0])}
+          </li>
+        ))} */}
         <div style={{ display: "flex", maxWidth: 900 }}>
           <Chart
-            width={400}
-            height={300}
+            width={1000}
+            height={400}
             chartType="ColumnChart"
             loader={<div>Loading Chart</div>}
-            data={[
-              ["Date", "IBIS", "Mercury"],
-              ['"2020-08-08"', 95, 86],
-              ["", 3792000, 3694000],
-              ["Chicago, IL", 2695000, 2896000],
-              ["Houston, TX", 2099000, 1953000],
-              ["Philadelphia, PA", 1526000, 1517000],
-            ]}
+            data={formattedData}
             options={{
-              title: "Population of Largest U.S. Cities",
+              title: "Rates per date",
               chartArea: { width: "30%" },
               hAxis: {
-                title: "Total Population",
+                title: "Dates",
                 minValue: 0,
               },
               vAxis: {
-                title: "City",
+                title: "Rates",
               },
             }}
             legendToggle
           />
-          <Chart
+          
+          {/* <Chart
             width={400}
             height={"300px"}
-            chartType="AreaChart"
+            chartType="ColumnChart"
+            loader={<div>Loading Chart</div>}
+            data={formattedData}
+            options={{
+              title: "Company Performance",
+              hAxis: { title: "Year", titleTextStyle: { color: "#333" } },
+              vAxis: { minValue: 0 },
+              // For the legend to fit, we make the chart area smaller
+              chartArea: { width: "50%", height: "70%" },
+              // lineWidth: 25
+            }}
+            
+          />
+           <Chart
+            width={400}
+            height={"300px"}
+            chartType="ColumnChart"
             loader={<div>Loading Chart</div>}
             data={[
-              ["Year", "Sales", "Expenses"],
-              ["2013", 1000, 400],
-              ["2014", 1170, 460],
-              ["2015", 660, 1120],
-              ["2016", 1030, 540],
+              ["Hotel", "2020-08-01", "2020-08-02","2020-08-03","2020-08-04"],
+              ["Hotel des Arts Montmartre", 95, null,105,110],
+              ["Le Royal Monceau Raffles", 117, 120, 110, 150],
+              ["Hotel Europe Paris", 70, 75,70,80],
+              
             ]}
             options={{
               title: "Company Performance",
@@ -96,7 +159,7 @@ export class Database extends Component {
               chartArea: { width: "50%", height: "70%" },
               // lineWidth: 25
             }}
-          />
+            /> */}
         </div>
       </div>
     );
