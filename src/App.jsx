@@ -8,7 +8,7 @@ import FooterMain from "./components/FooterMain";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
-import Test from "./pages/Test";
+//import Test from "./pages/Test";
 import ProfileUpdate from "./pages/ProfileUpdate";
 import Data from "./pages/Data";
 import Database from "./pages/Database";
@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/data" component={Data} />
           <ProtectedRoute exact path="/profile/settings" component={ProfileUpdate} />
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/test" component={Test} />
+          {/* <Route exact path="/test" component={Test} /> */}
           <Route exact path="/db" component={Database} />
 
           <ProtectedRoute exact path="/profile" component={Profile} />

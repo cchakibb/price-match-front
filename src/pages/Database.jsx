@@ -47,10 +47,7 @@ export class Database extends Component {
     return (
       <div>
         {this.state.hotels.map((oneHotel) => (
-          <li key={oneHotel._id}>
-            {" "}
-            {this.getHotelName(oneHotel.hotel_url[0])}
-          </li>
+          <li key={oneHotel._id}> {this.getHotelName(oneHotel.hotel_url[0])}</li>
         ))}
         <div style={{ display: "flex", maxWidth: 900 }}>
           <Chart

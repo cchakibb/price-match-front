@@ -19,7 +19,6 @@ const options = [
 class FormUpdate extends Component {
   static contextType = UserContext;
 
-
   handleChange = (event) => {
     const value = event.target.type === "file" ? event.target.files[0] : event.target.type === "checkbox" ? event.target.checked : event.target.value;
 
@@ -44,7 +43,7 @@ class FormUpdate extends Component {
   };
 
   render() {
-    const { competitors } = this.state;
+    //const { competitors } = this.state;
     console.log(this.context.user.competitors);
     return (
       <div className="register-wrapper">

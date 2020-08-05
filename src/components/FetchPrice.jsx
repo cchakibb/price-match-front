@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/* import React, { Component } from "react";
 import apiHotel from "../api/apiHotel";
 
 
@@ -71,3 +71,4 @@ export class test extends Component {
 }
 
 export default test;
+ */
