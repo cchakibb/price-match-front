@@ -50,6 +50,11 @@ const NavMain = (props) => {
             <li className="a-nav">
               <p onClick={handleLogout}>Logout</p>
             </li>
+            <li className="a-nav">
+              <NavLink to="/contact">
+              Contact
+              </NavLink>
+            </li>
           </React.Fragment>
         )}
         {!context.isLoggedIn && (
