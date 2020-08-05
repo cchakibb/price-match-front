@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import apiHotel from "../api/apiHotel";
 import axios from "axios";
 import { withUser } from "../components/Auth/withUser";
-import UserContext from "../components/Auth/UserContext";
+
 
 class Data extends Component {
   state = {

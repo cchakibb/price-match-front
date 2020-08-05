@@ -26,7 +26,7 @@ function App() {
           <ProtectedRoute exact path="/data" component={Data} />
           <ProtectedRoute exact path="/profile/settings" component={ProfileUpdate} />
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/db" component={Database} />
+          <ProtectedRoute exact path="/db" component={Database} />
           <Route exact path="/contact" component={Contact} />
 
           <ProtectedRoute exact path="/profile" component={Profile} />

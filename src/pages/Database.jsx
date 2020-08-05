@@ -5,7 +5,7 @@ import { Chart } from "react-google-charts";
 export class Database extends Component {
   state = {
     hotels: [],
-    dates : []
+    dates: [],
   };
 
   componentDidMount() {
@@ -29,11 +29,7 @@ export class Database extends Component {
     return name;
   };
 
-
-
-
   render() {
-
     // let hotel = this.state.hotels.map((hotel) =>
     //   hotel.rates.map((rate) => {
     //     return {
@@ -59,40 +55,40 @@ export class Database extends Component {
       }
       return acc;
     }, {});
-    console.log(result)
+    console.log("result",result);
 
     let dates = [];
-const hotelNames = Object.keys(result);
-hotelNames.forEach((hotelName) => {
-  const datesInHotel = Object.keys(result[hotelName].dates);
-  dates = [...dates, ...datesInHotel];
-});
-dates.sort();
-dates = [...new Set(dates)];
-const myData = dates.reduce((acc, curr) => {
-  for (let hotelName of hotelNames) {
-    if (acc[curr]) {
-      acc[curr].push(result[hotelName].dates[curr]);
-    } else {
-      acc[curr] = [result[hotelName].dates[curr]];
-    }
-  }
-  return acc;
-}, {});
-    
-const formattedData = Object.keys(myData).reduce((acc, curr) => {
-  acc.push([curr, ...myData[curr]]);
-  return acc;
-}, []);
-    console.log("formattedData",formattedData)
-console.log(hotelNames);
-const formattedHotelsNames = hotelNames.map(hotel => this.getHotelName(hotel));
+    const hotelNames = Object.keys(result);
+    hotelNames.forEach((hotelName) => {
+      const datesInHotel = Object.keys(result[hotelName].dates);
+      dates = [...dates, ...datesInHotel];
+    });
+    dates.sort();
+    dates = [...new Set(dates)];
+    const myData = dates.reduce((acc, curr) => {
+      for (let hotelName of hotelNames) {
+        if (acc[curr]) {
+          acc[curr].push(result[hotelName].dates[curr]);
+        } else {
+          acc[curr] = [result[hotelName].dates[curr]];
+        }
+      }
+      return acc;
+    }, {});
+
+    const formattedData = Object.keys(myData).reduce((acc, curr) => {
+      acc.push([curr, ...myData[curr]]);
+      return acc;
+    }, []);
+    console.log("formattedData", formattedData);
+    console.log(hotelNames);
+    const formattedHotelsNames = hotelNames.map((hotel) =>
+      this.getHotelName(hotel)
+    );
     const readyDataForChart = ["Dates", ...formattedHotelsNames];
-    console.log("readyData",readyDataForChart)
+    console.log("readyData", readyDataForChart);
     const data = formattedData.unshift(readyDataForChart);
-    console.log("data",data)
-
-
+    console.log("data", data);
 
     return (
       <div>
@@ -104,7 +100,7 @@ const formattedHotelsNames = hotelNames.map(hotel => this.getHotelName(hotel));
         ))} */}
         <div style={{ display: "flex", maxWidth: 900 }}>
           <Chart
-            width={1000}
+            width={500}
             height={400}
             chartType="ColumnChart"
             loader={<div>Loading Chart</div>}
@@ -122,7 +118,7 @@ const formattedHotelsNames = hotelNames.map(hotel => this.getHotelName(hotel));
             }}
             legendToggle
           />
-          
+
           {/* <Chart
             width={400}
             height={"300px"}
