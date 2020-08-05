@@ -11,6 +11,7 @@ import "./styles/footer.css";
 import "./styles/form.css";
 import "./styles/header.css";
 import "./styles/profile.css";
+import "./styles/formContact.css";
 
 ReactDOM.render(
   <BrowserRouter>

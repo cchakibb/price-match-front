@@ -8,7 +8,7 @@ import FooterMain from "./components/FooterMain";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
-//import Test from "./pages/Test";
+import Test from "./pages/Test";
 import ProfileUpdate from "./pages/ProfileUpdate";
 import Data from "./pages/Data";
 import Database from "./pages/Database";
@@ -18,33 +18,22 @@ function App() {
   return (
     <div className="App">
       <NavMain />
-<<<<<<< HEAD
-        <div className="content">
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signin" component={Signin} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/data" component={Data} />
-        <ProtectedRoute exact path="/profile/settings" component={ProfileUpdate} />
-        <ProtectedRoute  exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/test" component={Test} />
-        <Route exact path="/db" component={Database} />
-          <ProtectedRoute exact path="/profile" component={Profile} />
-        <Route exact path="/contact" component={Contact} />
-=======
       <div className="content">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/data" component={Data} />
-          <ProtectedRoute exact path="/profile/settings" component={ProfileUpdate} />
+          <ProtectedRoute
+            exact
+            path="/profile/settings"
+            component={ProfileUpdate}
+          />
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />
           <Route exact path="/test" component={Test} />
           <Route exact path="/db" component={Database} />
+          <ProtectedRoute exact path="/profile" component={Profile} />
           <Route exact path="/contact" component={Contact} />
->>>>>>> b1144dbf1d23e53fd5a5791427e6bdc5d0c465a2
-
         </Switch>
       </div>
       <FooterMain />
