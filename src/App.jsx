@@ -23,10 +23,9 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/data" component={Data} />
+          <ProtectedRoute exact path="/data" component={Data} />
           <ProtectedRoute exact path="/profile/settings" component={ProfileUpdate} />
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/test" component={Test} />
           <Route exact path="/db" component={Database} />
           <Route exact path="/contact" component={Contact} />
 

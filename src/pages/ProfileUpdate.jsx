@@ -30,7 +30,6 @@ class FormUpdate extends Component {
     const key = event.target.name;
 
     this.setState({ [key]: value });
-    console.log(this.state.competitors);
   };
 
   handleSubmit = (event) => {
@@ -48,11 +47,7 @@ class FormUpdate extends Component {
   };
 
   render() {
-<<<<<<< HEAD
     // const { competitors } = this.state;
-=======
-    //const { competitors } = this.state;
->>>>>>> b1144dbf1d23e53fd5a5791427e6bdc5d0c465a2
     console.log(this.context.user.competitors);
     return (
       <div className="register-wrapper">
