@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import UserContext from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
 import MultiSelect from "@khanacademy/react-multi-select";
-import { Button, FormGroup, Form, Label, Input, Col } from "reactstrap";
 
 const options = [
   { label: "Hotel Marguerite", value: "g187129-d615325" },
@@ -49,7 +48,7 @@ class FormSignup extends Component {
         .signup(this.state)
         .then((data) => {
           this.context.setUser(data);
-          
+
           this.props.history.push("/dashboard");
         })
         .catch((error) => {

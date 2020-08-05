@@ -15,7 +15,6 @@ const NavMain = (props) => {
       .logout()
       .then(() => {
         context.removeUser();
-
       })
       .catch((error) => {
         console.log(error);
@@ -24,37 +23,32 @@ const NavMain = (props) => {
 
   return (
     <nav className="nav">
-
-     <input type="checkbox" id="check" />
-    <label htmlFor="check" className="checkbtn">
-    <GiHamburgerMenu size={44} color="  rgba(252, 192, 82, 0.932)" />
-    </label>
+      <input type="checkbox" id="check" />
+      <label htmlFor="check" className="checkbtn">
+        <GiHamburgerMenu size={44} color="  rgba(252, 192, 82, 0.932)" />
+      </label>
       <NavLink exact to="/">
-      <label className="logo">
-      <a id="price-title" href="/">Price<span>Match</span></a>
-    </label>
-   
+        <label id="price-title" className="logo">
+          Price<span>Match</span>
+        </label>
       </NavLink>
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
             <li className="a-nav">
-              <NavLink to="/profile">
-                {context.user && context.user.email}
-              </NavLink>
+              <NavLink to="/profile">{context.user && context.user.email}</NavLink>
             </li>
             <li className="a-nav">
-              <NavLink to="/dashboard">
-              Dashboard
-              </NavLink>
+              <NavLink to="/dashboard">Dashboard</NavLink>
             </li>
             <li className="a-nav">
-              <NavLink to="/contact">
-              Contact
-              </NavLink>
+              <NavLink to="/contact">Contact</NavLink>
             </li>
             <li className="a-nav">
-              <p onClick={handleLogout}> <RiLogoutBoxLine size={44} color="  rgba(252, 192, 82, 0.932)"/></p>
+              <p onClick={handleLogout}>
+                {" "}
+                <RiLogoutBoxLine size={44} color="  rgba(252, 192, 82, 0.932)" />
+              </p>
             </li>
           </React.Fragment>
         )}
@@ -67,15 +61,12 @@ const NavMain = (props) => {
               <NavLink to="/signup">Create account</NavLink>
             </li>
             <li className="a-nav">
-              <NavLink to="/contact">
-              Contact
-              </NavLink>
+              <NavLink to="/contact">Contact</NavLink>
             </li>
           </React.Fragment>
         )}
       </ul>
     </nav>
-    
   );
 };
 
