@@ -2,14 +2,19 @@ import React, { Component } from "react";
 import apiHotel from "../api/apiHotel";
 import axios from "axios";
 import UserContext from "../components/Auth/UserContext";
+
+
 class Data extends Component {
   static contextType = UserContext;
   state = {
     hotels: [],
+    competitors:[],
+   
   };
 
+
   componentDidMount() {
-    apiHotel.getHotelInfo().then((data) => {
+    apiHotel.getHotelInfo(this.state.competitors).then((data) => {
       const hotels = data.filter((d) => d !== null);
       this.setState({ hotels: hotels });
       axios
@@ -21,15 +26,18 @@ class Data extends Component {
 
   componentDidUpdate() {
     console.log(this.context, "this is context");
+   
   }
 
   render() {
-    console.log(this.state.hotels);
-    return (
-      <div>
-        <p>Data</p>
-      </div>
-    );
+
+      console.log(this.state.hotels);
+      return (
+        <div>
+          <p>Data</p>
+        </div>
+      );
+   
   }
 }
 

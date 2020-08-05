@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button,  Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Link } from 'react-router-dom';
 
 class ModalExample extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class ModalExample extends React.Component {
           </div>
         </ModalBody>
         <ModalFooter>
-          {/* <Button color="primary">See prices</Button>{" "} */}
+          <Button color="primary" ><Link to="/db">See prices</Link></Button>
           <Button color="secondary" onClick={this.props.handleClose} style={{backgroundColor:"rgba(252,192,82,0.932"}}>
             Cancel
           </Button>
