@@ -12,6 +12,7 @@ import Test from "./pages/Test";
 import ProfileUpdate from "./pages/ProfileUpdate";
 import Data from "./pages/Data";
 import Database from "./pages/Database";
+import Contact from "./pages/Contact";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/test" component={Test} />
         <Route exact path="/db" component={Database} />
+        <Route exact path="/contact" component={Contact} />
 
         <ProtectedRoute exact path="/profile" component={Profile} />
       </Switch>
