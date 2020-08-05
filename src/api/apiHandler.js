@@ -61,6 +61,12 @@ UserUpdate(user){
   .patch("/user/me",user)
   .then((res) => res.data)
     .catch(errorHandler);
+},
+Send(data){
+  return service
+  .post("/contact/send",data)
+  .then((res) => res.data)
+    .catch(errorHandler)
 }
 };
 
