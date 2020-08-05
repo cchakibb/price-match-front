@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin, { ThirdPartyDraggable } from "@fullcalendar/interaction";
+import interactionPlugin from "@fullcalendar/interaction";
 import apiHotel from "../api/apiHotel"; // needed for dayClick
 import bootstrapPlugin from "@fullcalendar/bootstrap";
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { withUser } from "../components/Auth/withUser";
 import Modal from "./Modal";
 
@@ -70,13 +69,17 @@ class Calendar extends Component {
   EventDetail = (eventInfo) => {
     return (
       <>
-        <p style={{
-          textAlign: "justify",
-          fontSize:"10px",
-          backgroundColor: "rgba(252, 192, 82, 0.932)",
-           
+        <p
+          style={{
+            textAlign: "justify",
+            fontSize: "10px",
+            backgroundColor: "rgba(252, 192, 82, 0.932)",
+
             color: "black",
-          }}>{eventInfo.event.title}</p>
+          }}
+        >
+          {eventInfo.event.title}
+        </p>
 
         <p
           style={{

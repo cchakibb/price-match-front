@@ -14,7 +14,6 @@ const NavMain = (props) => {
       .logout()
       .then(() => {
         context.removeUser();
-
       })
       .catch((error) => {
         console.log(error);
@@ -23,29 +22,23 @@ const NavMain = (props) => {
 
   return (
     <nav className="nav">
-
-     <input type="checkbox" id="check" />
-    <label htmlFor="check" className="checkbtn">
-    <GiHamburgerMenu size={44} color="  rgb(7, 131, 69)" />
-    </label>
+      <input type="checkbox" id="check" />
+      <label htmlFor="check" className="checkbtn">
+        <GiHamburgerMenu size={44} color="  rgb(7, 131, 69)" />
+      </label>
       <NavLink exact to="/">
-      <label className="logo">
-      <a id="price-title" href="/">Price<span>Match</span></a>
-    </label>
-   
+        <label id="price-title" className="logo">
+          Price<span>Match</span>
+        </label>
       </NavLink>
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
             <li className="a-nav">
-              <NavLink to="/profile">
-                {context.user && context.user.email}
-              </NavLink>
+              <NavLink to="/profile">{context.user && context.user.email}</NavLink>
             </li>
             <li className="a-nav">
-              <NavLink to="/dashboard">
-              Dashboard
-              </NavLink>
+              <NavLink to="/dashboard">Dashboard</NavLink>
             </li>
             <li className="a-nav">
               <p onClick={handleLogout}>Logout</p>
@@ -64,7 +57,6 @@ const NavMain = (props) => {
         )}
       </ul>
     </nav>
-    
   );
 };
 

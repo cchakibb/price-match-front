@@ -3,15 +3,12 @@ import apiHotel from "../api/apiHotel";
 import axios from "axios";
 import UserContext from "../components/Auth/UserContext";
 
-
 class Data extends Component {
   static contextType = UserContext;
   state = {
     hotels: [],
-    competitors:[],
-   
+    competitors: [],
   };
-
 
   componentDidMount() {
     apiHotel.getHotelInfo(this.state.competitors).then((data) => {
@@ -26,18 +23,15 @@ class Data extends Component {
 
   componentDidUpdate() {
     console.log(this.context, "this is context");
-   
   }
 
   render() {
-
-      console.log(this.state.hotels);
-      return (
-        <div>
-          <p>Data</p>
-        </div>
-      );
-   
+    console.log(this.state.hotels);
+    return (
+      <div>
+        <p>Data</p>
+      </div>
+    );
   }
 }
 
