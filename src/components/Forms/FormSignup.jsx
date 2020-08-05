@@ -64,7 +64,7 @@ class FormSignup extends Component {
         <div className="register-wrapper">
           <div className="register-block">
             <h3 className="register-title">Create a account</h3>
-            <form onChange={this.handleChange} onSubmit={this.handleSubmit} style={{ display: "flex", flexDirection: "column", width: 300, marginLeft: 600 }}>
+            <form onChange={this.handleChange} onSubmit={this.handleSubmit} style={{ display: "flex", flexDirection: "column", width: 300, marginLeft: 680 }}>
               <label htmlFor="email">Email:</label>
               <input type="email" id="email" name="email" />
               <label htmlFor="password1">Password:</label>

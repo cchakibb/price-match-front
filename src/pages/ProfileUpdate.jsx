@@ -25,7 +25,7 @@ class FormUpdate extends Component {
     const key = event.target.name;
 
     this.setState({ [key]: value });
-    console.log(this.state.competitors);
+    
   };
 
   handleSubmit = (event) => {

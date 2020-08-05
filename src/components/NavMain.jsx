@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { withUser } from "../components/Auth/withUser";
 import apiHandler from "../api/apiHandler";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { RiLogoutBoxLine } from "react-icons/ri";
 
 import "../styles/nav.css";
 
@@ -24,7 +25,7 @@ const NavMain = (props) => {
     <nav className="nav">
       <input type="checkbox" id="check" />
       <label htmlFor="check" className="checkbtn">
-        <GiHamburgerMenu size={44} color="  rgb(7, 131, 69)" />
+        <GiHamburgerMenu size={44} color="  rgba(252, 192, 82, 0.932)" />
       </label>
       <NavLink exact to="/">
         <label id="price-title" className="logo">
@@ -41,7 +42,13 @@ const NavMain = (props) => {
               <NavLink to="/dashboard">Dashboard</NavLink>
             </li>
             <li className="a-nav">
-              <p onClick={handleLogout}>Logout</p>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+            <li className="a-nav">
+              <p onClick={handleLogout}>
+                {" "}
+                <RiLogoutBoxLine size={44} color="  rgba(252, 192, 82, 0.932)" />
+              </p>
             </li>
           </React.Fragment>
         )}
@@ -52,6 +59,9 @@ const NavMain = (props) => {
             </li>
             <li className="a-nav">
               <NavLink to="/signup">Create account</NavLink>
+            </li>
+            <li className="a-nav">
+              <NavLink to="/contact">Contact</NavLink>
             </li>
           </React.Fragment>
         )}
