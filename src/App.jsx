@@ -30,7 +30,7 @@ function App() {
             component={ProfileUpdate}
           />
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/test" component={Test} />
+
           <Route exact path="/db" component={Database} />
           <ProtectedRoute exact path="/profile" component={Profile} />
           <Route exact path="/contact" component={Contact} />
