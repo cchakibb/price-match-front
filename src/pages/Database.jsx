@@ -96,12 +96,18 @@ const formattedHotelsNames = hotelNames.map(hotel => this.getHotelName(hotel));
 
     return (
       <div>
+<<<<<<< HEAD
         {/* {this.state.hotels.map((oneHotel) => (
           <li key={oneHotel._id}>
             {" "}
             {this.getHotelName(oneHotel.hotel_url[0])}
           </li>
         ))} */}
+=======
+        {this.state.hotels.map((oneHotel) => (
+          <li key={oneHotel._id}> {this.getHotelName(oneHotel.hotel_url[0])}</li>
+        ))}
+>>>>>>> b1144dbf1d23e53fd5a5791427e6bdc5d0c465a2
         <div style={{ display: "flex", maxWidth: 900 }}>
           <Chart
             width={1000}
