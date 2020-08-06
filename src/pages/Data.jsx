@@ -14,7 +14,7 @@ class Data extends Component {
         const hotels = data.filter((d) => d !== null);
         this.setState({ hotels: hotels });
         axios
-          .post("http://localhost:4000/hotelData/data", { hotels })
+          .post(process.env.REACT_APP_BACKEND_URL + "/hotelData/data", { hotels })
           .then((DbRes) => console.log(DbRes))
           .catch((error) => console.log(error));
       });
