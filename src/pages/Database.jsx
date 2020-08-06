@@ -55,7 +55,7 @@ export class Database extends Component {
       }
       return acc;
     }, {});
-    console.log("result",result);
+    console.log("result", result);
 
     let dates = [];
     const hotelNames = Object.keys(result);
@@ -63,6 +63,7 @@ export class Database extends Component {
       const datesInHotel = Object.keys(result[hotelName].dates);
       dates = [...dates, ...datesInHotel];
     });
+
     dates.sort();
     dates = [...new Set(dates)];
     const myData = dates.reduce((acc, curr) => {
@@ -91,16 +92,17 @@ export class Database extends Component {
     console.log("data", data);
 
     return (
-      <div>
+      <div style={{ display: "flex", marginLeft: "auto", marginRight: "auto" }}>
         {/* {this.state.hotels.map((oneHotel) => (
           <li key={oneHotel._id}>
             {" "}
             {this.getHotelName(oneHotel.hotel_url[0])}
           </li>
         ))} */}
-        <div style={{ display: "flex", maxWidth: 900 }}>
+
+        <div>
           <Chart
-            width={500}
+            width={600}
             height={400}
             chartType="ColumnChart"
             loader={<div>Loading Chart</div>}
@@ -118,44 +120,24 @@ export class Database extends Component {
             }}
             legendToggle
           />
+        </div>
 
-          {/* <Chart
-            width={400}
-            height={"300px"}
-            chartType="ColumnChart"
+        <div>
+          <Chart
+            width={500}
+            height={400}
+            chartType="BarChart"
             loader={<div>Loading Chart</div>}
             data={formattedData}
             options={{
-              title: "Company Performance",
-              hAxis: { title: "Year", titleTextStyle: { color: "#333" } },
+              title: "Rates per date",
+              hAxis: { title: "Rate", titleTextStyle: { color: "#333" } },
               vAxis: { minValue: 0 },
               // For the legend to fit, we make the chart area smaller
               chartArea: { width: "50%", height: "70%" },
               // lineWidth: 25
             }}
-            
           />
-           <Chart
-            width={400}
-            height={"300px"}
-            chartType="ColumnChart"
-            loader={<div>Loading Chart</div>}
-            data={[
-              ["Hotel", "2020-08-01", "2020-08-02","2020-08-03","2020-08-04"],
-              ["Hotel des Arts Montmartre", 95, null,105,110],
-              ["Le Royal Monceau Raffles", 117, 120, 110, 150],
-              ["Hotel Europe Paris", 70, 75,70,80],
-              
-            ]}
-            options={{
-              title: "Company Performance",
-              hAxis: { title: "Year", titleTextStyle: { color: "#333" } },
-              vAxis: { minValue: 0 },
-              // For the legend to fit, we make the chart area smaller
-              chartArea: { width: "50%", height: "70%" },
-              // lineWidth: 25
-            }}
-            /> */}
         </div>
       </div>
     );

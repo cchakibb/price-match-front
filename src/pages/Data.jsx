@@ -10,14 +10,18 @@ class Data extends Component {
 
   componentDidMount() {
     if (this.props.context.user) {
-      apiHotel.getHotelInfo(this.props.context.user.competitors).then((data) => {
-        const hotels = data.filter((d) => d !== null);
-        this.setState({ hotels: hotels });
-        axios
-          .post("http://localhost:4000/hotelData/data", { hotels })
-          .then((DbRes) => console.log(DbRes))
-          .catch((error) => console.log(error));
-      });
+      apiHotel
+        .getHotelInfo(this.props.context.user.competitors)
+        .then((data) => {
+          const hotels = data.filter((d) => d !== null);
+          this.setState({ hotels: hotels });
+          axios
+            .post(process.env.REACT_APP_BACKEND_URL + "/hotelData/data", {
+              hotels,
+            })
+            .then((DbRes) => console.log(DbRes))
+            .catch((error) => console.log(error));
+        });
     }
   }
 

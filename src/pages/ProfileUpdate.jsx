@@ -20,7 +20,12 @@ class FormUpdate extends Component {
   static contextType = UserContext;
 
   handleChange = (event) => {
-    const value = event.target.type === "file" ? event.target.files[0] : event.target.type === "checkbox" ? event.target.checked : event.target.value;
+    const value =
+      event.target.type === "file"
+        ? event.target.files[0]
+        : event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
 
     const key = event.target.name;
 
@@ -55,19 +60,45 @@ class FormUpdate extends Component {
               display: "flex",
               flexDirection: "column",
               width: 300,
-              marginLeft: 600,
+              marginLeft: "auto",
+              marginRight: "auto",
             }}
           >
             <label>First name:</label>
-            <input type="text" id="firstName" name="firstName" defaultValue={this.context.user.firstName} />
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              defaultValue={this.context.user.firstName}
+            />
             <label>Last name:</label>
-            <input type="text" id="lastName" name="lastName" defaultValue={this.context.user.lastName} />
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              defaultValue={this.context.user.lastName}
+            />
             <label>Hotel name:</label>
-            <input type="text" id="hotelName" name="hotelName" defaultValue={this.context.user.hotelName} />
+            <input
+              type="text"
+              id="hotelName"
+              name="hotelName"
+              defaultValue={this.context.user.hotelName}
+            />
             <label>Phone number:</label>
-            <input type="text" id="phoneNumber" name="phoneNumber" defaultValue={this.context.user.phoneNumber} />
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber"
+              defaultValue={this.context.user.phoneNumber}
+            />
             <label>Address:</label>
-            <input type="text" id="address" name="address" defaultValue={this.context.user.address} />
+            <input
+              type="text"
+              id="address"
+              name="address"
+              defaultValue={this.context.user.address}
+            />
             <label>Competitors:</label>
             <MultiSelect
               options={options}

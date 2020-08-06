@@ -74,6 +74,7 @@ class Calendar extends Component {
             textAlign: "justify",
             fontSize: "10px",
             backgroundColor: "rgba(252, 192, 82, 0.932)",
+            whiteSpace: 'pre-wrap',
 
             color: "black",
           }}

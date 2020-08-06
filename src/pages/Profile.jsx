@@ -1,19 +1,48 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../components/Auth/UserContext";
+import apiHotel from "../api/apiHotel"; // needed for dayClick
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       user: null,
+      hotels: [],
     };
   }
   static contextType = UserContext;
   componentDidMount() {
     console.log(this.context);
+    if (this.context.user) {
+      apiHotel.getHotelInfo(this.context.user.competitors).then((data) => {
+        const hotels = data.filter((d) => d !== null);
+        this.setState({ hotels: hotels });
+      });
+    }
   }
 
+  getHotelName = (url) => {
+    let res = url.substring(64);
+    let name = res.substring(0, res.length - 5);
+    if (name.charAt(0) === "-") {
+      name = name.replace("-", "");
+    }
+    const regex = /_/gi;
+    name = name.replace(regex, " ");
+    return name;
+  };
+
   render() {
+    let names = this.state.hotels.map((oneHotel) =>
+      this.getHotelName(oneHotel.hotel_url[0])
+    );
+    names = [...new Set(names)];
+ 
+    let nameHotels = names.map((nameHotel) => {
+      return (<li key={nameHotel}>{nameHotel}</li>)
+    })
+    console.log(">>>",nameHotels)
+
     if (this.context.user.firtName === null) return <div>Loading</div>;
     return (
       <div>
@@ -24,11 +53,8 @@ class Profile extends Component {
           <p>{this.context.user.email}</p>
           <p>{this.context.user.phoneNumber}</p>
           <h3>Competitors :</h3>
-          <p>{this.context.user.competitors}</p>
-          {/* <a href="#"><i className="fa fa-dribbble"></i></a>
-  <a href="#"><i className="fa fa-twitter"></i></a>
-  <a href="#"><i className="fa fa-linkedin"></i></a>
-  <a href="#"><i className="fa fa-facebook"></i></a> */}
+          <p>{nameHotels}</p>
+
           <p>
             {" "}
             <Link className="link" to="/profile/settings">
