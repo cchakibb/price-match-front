@@ -27,9 +27,9 @@ const Home = (props) => {
           </div>
           <div className="container">
             <h4>
-              <b>add your competitor</b>
+              <b>ADD YOUR COMPETITOR</b>
             </h4>
-            <p>Engineer</p>
+            <p>With price match you can easily add competitor</p>
           </div>
         </div>
 
@@ -39,9 +39,9 @@ const Home = (props) => {
           </div>
           <div className="container">
             <h4>
-              <b>Welcome more people</b>
+              <b>WELCOME MORE PEOPLE</b>
             </h4>
-            <p>With us your will be able to know and match the price with your competitor</p>
+            <p>Be at the good price every night to attract more potential costumers</p>
           </div>
         </div>
 
@@ -51,9 +51,9 @@ const Home = (props) => {
           </div>
           <div className="container">
             <h4>
-              <b>Know more about your competitor</b>
+              <b>KNOW MORE ABOUT YOUR COMPETITOR</b>
             </h4>
-            <p>You can now know more about your competitor</p>
+            <p>You can now know more about your competitor their price their rooms</p>
           </div>
         </div>
 
@@ -63,7 +63,7 @@ const Home = (props) => {
           </div>
           <div className="container">
             <h4>
-              <b>Match with the market</b>
+              <b>MATCH WITH YOUR MARKET</b>
             </h4>
             <p>With us your will be able to know and match the price with your competitor</p>
           </div>
@@ -74,15 +74,15 @@ const Home = (props) => {
       <hr className="new1" />
       <section className="zone-iconing">
         <div className="iconing">
-          <h3>Developpez vos besoin</h3>
+          <h3>Market </h3>
           <img src="/image/human-orange.png" alt="icon" />
-          <p>pour vous aidez a developer vos revenue</p>
+          <p>Market intelligence solution that captures hotel booking intent in real-time to uncover new revenue opportunities</p>
         </div>
 
         <div className="iconing">
-          <h3>Developpez vos besoin</h3>
-          <img src="/image/human-orange3.png" alt="icon" />
-          <p>pour vous aidez a developer vos revenue</p>
+          <h3>Rate </h3>
+          <img src="/image/human-orange2.png" alt="icon" />
+          <p> Is an easy-to-use platform that gives access to all relevant factors impacting demand for your hotel rooms</p>
         </div>
         {/*       
         <div className="iconing">
@@ -99,15 +99,15 @@ const Home = (props) => {
 
       <section className="zone-iconing">
         <div className="iconing">
-          <h3>Developpez vos besoin</h3>
-          <img src="/image/human-orange2.png" alt="icon" />
-          <p>pour vous aidez a developer vos revenue</p>
+          <h3>Parity </h3>
+          <img src="/image/human-orange3.png" alt="icon" />
+          <p>The business intelligence platform that unlocks the potential of your PMS data</p>
         </div>
 
         <div className="iconing">
-          <h3>Developpez vos besoin</h3>
+          <h3>Revenue Potential</h3>
           <img src="/image/chart-orange.png" alt="icon" />
-          <p>pour vous aidez a developer vos revenue</p>
+          <p>The end-to-end solution for hotel groups and chains to discover and solve parity issues across their portfolio</p>
         </div>
       </section>
       <h2>THEY CHOSE US </h2>
