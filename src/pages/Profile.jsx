@@ -44,7 +44,7 @@ class Profile extends Component {
     });
     console.log(">>>", nameHotels);
 
-    if (this.state.hotels.length == 0)
+    if (this.state.hotels.length === 0)
       return (
         <div
           className="loader"

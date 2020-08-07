@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import UserContext from "../Auth/UserContext";
 import { withRouter } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
-import { GiAutoRepair } from "react-icons/gi";
 
 // import "../styles/signin.css";
 class FormSignin extends Component {
@@ -18,7 +17,12 @@ class FormSignin extends Component {
     const key = event.target.name;
 
     // You can test more if you have to handle different sorts of inputs.
-    const value = event.target.type === "file" ? event.target.files[0] : event.target.type === "checkbox" ? event.target.checked : event.target.value;
+    const value =
+      event.target.type === "file"
+        ? event.target.files[0]
+        : event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
 
     this.setState({ [key]: value });
   };
@@ -41,16 +45,26 @@ class FormSignin extends Component {
   render() {
     return (
       <div className="register-wrapper">
-      <div className="register-block">
-        <h3 className="register-title">LogIn</h3>
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit} style={{ display: "flex", flexDirection: "column", width: 300, marginLeft: "auto" ,marginRight:"auto"}}>
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" />
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" />
-        <button>Submit</button>
-      </form>
-      </div>
+        <div className="register-block">
+          <h3 className="register-title">LogIn</h3>
+          <form
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              width: 300,
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" name="email" />
+            <label htmlFor="password">Password:</label>
+            <input type="password" id="password" name="password" />
+            <button>Submit</button>
+          </form>
+        </div>
       </div>
     );
   }

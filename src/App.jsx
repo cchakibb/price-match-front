@@ -8,7 +8,6 @@ import FooterMain from "./components/FooterMain";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Dashboard from "./pages/Dashboard";
-import Test from "./pages/Test";
 import ProfileUpdate from "./pages/ProfileUpdate";
 import Data from "./pages/Data";
 import Database from "./pages/Database";
