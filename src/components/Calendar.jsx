@@ -6,6 +6,7 @@ import apiHotel from "../api/apiHotel"; // needed for dayClick
 import bootstrapPlugin from "@fullcalendar/bootstrap";
 import { withUser } from "../components/Auth/withUser";
 import Modal from "./Modal";
+import Loader from "react-loader-spinner";
 
 class Calendar extends Component {
   state = {
@@ -24,10 +25,12 @@ class Calendar extends Component {
 
   componentDidMount() {
     if (this.props.context.user) {
-      apiHotel.getHotelInfo(this.props.context.user.competitors).then((data) => {
-        const hotels = data.filter((d) => d !== null);
-        this.setState({ hotels: hotels });
-      });
+      apiHotel
+        .getHotelInfo(this.props.context.user.competitors)
+        .then((data) => {
+          const hotels = data.filter((d) => d !== null);
+          this.setState({ hotels: hotels });
+        });
     }
 
     //this.setState({ idLoading: false });
@@ -36,10 +39,12 @@ class Calendar extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.context.user !== prevProps.context.user) {
-      apiHotel.getHotelInfo(this.props.context.user.competitors).then((data) => {
-        const hotels = data.filter((d) => d !== null);
-        this.setState({ hotels: hotels });
-      });
+      apiHotel
+        .getHotelInfo(this.props.context.user.competitors)
+        .then((data) => {
+          const hotels = data.filter((d) => d !== null);
+          this.setState({ hotels: hotels });
+        });
     }
   }
 
@@ -74,7 +79,7 @@ class Calendar extends Component {
             textAlign: "justify",
             fontSize: "10px",
             backgroundColor: "rgba(252, 192, 82, 0.932)",
-            whiteSpace: 'pre-wrap',
+            whiteSpace: "pre-wrap",
 
             color: "black",
           }}
@@ -103,6 +108,7 @@ class Calendar extends Component {
     // const hotels = [{ name;"titi", age: 28}, {name: "toto", age: 14}];
 
     // hotels.map(hotel => hotel.name) => ["titi", "toto"]
+
     const hotel = this.state.hotels.flat().map((hotel) => {
       return {
         title: this.getHotelName(hotel.hotel_url[0]),
@@ -110,6 +116,21 @@ class Calendar extends Component {
         date: hotel.chk_in,
       };
     });
+
+    if (this.state.hotels.length == 0)
+      return (
+        <div
+          className="loader"
+          style={{ marginLeft: "auto", marginRight: "auto" }}
+        >
+          <Loader
+            type="Bars"
+            color="rgba(252, 192, 82, 0.932)"
+            height={100}
+            width={100}
+          />
+        </div>
+      );
 
     return (
       <div>
@@ -129,7 +150,13 @@ class Calendar extends Component {
           />
         </div>
         <div>
-          <Modal isOpen={this.state.modal} handleClose={this.closeModal} title={this.state.title} description={this.state.description} date={this.state.date} />
+          <Modal
+            isOpen={this.state.modal}
+            handleClose={this.closeModal}
+            title={this.state.title}
+            description={this.state.description}
+            date={this.state.date}
+          />
         </div>
       </div>
     );

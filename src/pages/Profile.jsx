@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../components/Auth/UserContext";
 import apiHotel from "../api/apiHotel"; // needed for dayClick
+import Loader from "react-loader-spinner";
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -37,13 +38,26 @@ class Profile extends Component {
       this.getHotelName(oneHotel.hotel_url[0])
     );
     names = [...new Set(names)];
- 
-    let nameHotels = names.map((nameHotel) => {
-      return (<li key={nameHotel}>{nameHotel}</li>)
-    })
-    console.log(">>>",nameHotels)
 
-    if (this.context.user.firtName === null) return <div>Loading</div>;
+    let nameHotels = names.map((nameHotel) => {
+      return <li key={nameHotel}>{nameHotel}</li>;
+    });
+    console.log(">>>", nameHotels);
+
+    if (this.state.hotels.length == 0)
+      return (
+        <div
+          className="loader"
+          style={{ marginLeft: "auto", marginRight: "auto" }}
+        >
+          <Loader
+            type="Bars"
+            color="rgba(252, 192, 82, 0.932)"
+            height={100}
+            width={100}
+          />
+        </div>
+      );
     return (
       <div>
         <div className="cardo">

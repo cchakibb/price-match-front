@@ -3,7 +3,7 @@
   max-width: 400px;
   margin: auto;
   text-align: center;
-  margin-top: 200px;
+  margin-top: 60px;
 }
 
 .title {
@@ -30,12 +30,19 @@ p {
   font-size: 22px;
   color: black;
 }
-.link{
+.link {
   background-color: rgba(252, 192, 82, 0.932);
   padding: 8px;
   border-radius: 25px;
 }
 
-button:hover, p:hover {
+button:hover,
+p:hover {
   opacity: 0.7;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 40%;
 }
