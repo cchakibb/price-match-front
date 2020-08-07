@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 
-
 class FormContact extends Component {
   // constructor(props) {
   // super(props);

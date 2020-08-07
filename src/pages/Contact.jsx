@@ -1,8 +1,8 @@
 import React from "react";
 import FormContact from "../components/Forms/FormContact";
 
-const Mail = (props) => {
+const Contact = (props) => {
   return <FormContact />;
 };
 
-export default Mail;
+export default Contact;
